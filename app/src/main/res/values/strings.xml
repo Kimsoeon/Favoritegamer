@@ -6,7 +6,7 @@
     <string name="esca">에스카</string>
     <string name="tobi">토비</string>
     <string name="ryu">류제홍</string>
-    <string name="bur_lbl">선택완료</string>
+    <string name="but_lbl">선택완료</string>
 
 
 </resources>
