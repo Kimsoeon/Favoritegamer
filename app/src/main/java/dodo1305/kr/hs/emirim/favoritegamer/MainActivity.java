@@ -10,10 +10,11 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
-public class MainActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener {
+public class MainActivity extends AppCompatActivity implements CompoundButton.OnCheckedChangeListener,View.OnClickListener{
     CheckBox checkSelect;
     TextView textQuest;
     RadioGroup rg;
@@ -35,9 +36,10 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
         imgvgamer = (ImageView)findViewById(R.id.imgv_gamer);
 
         checkSelect.setOnCheckedChangeListener(this);
+        butOk.setOnClickListener(this);
 
 
-    }
+    } //onCreate
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -52,6 +54,21 @@ public class MainActivity extends AppCompatActivity implements CompoundButton.On
             rg.setVisibility(View.INVISIBLE);
             butOk.setVisibility(View.INVISIBLE);
             imgvgamer.setVisibility(View.INVISIBLE);
+
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch(rg.getCheckedRadioButtonId()){
+            case R.id.radio_esca: imgvgamer.setImageResource(R.drawable.esca);
+                break;
+            case R.id.radio_ryu: imgvgamer.setImageResource(R.drawable.ryujehong);
+                break;
+            case R.id.radio_tobi: imgvgamer.setImageResource(R.drawable.tobi);
+                break;
+            default:
+                Toast.makeText(this,"라디오 버튼을 선택해주세요",Toast.LENGTH_SHORT).show();
 
         }
     }
